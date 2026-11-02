@@ -26,7 +26,8 @@ public class AccountingLedgerApp {
             command = scanner.nextLine().trim().toUpperCase();
 
             switch (command) {
-                case "D" -> addPayment();
+                case "D" -> addDeposit();
+                case "P" -> makePayment();
                 case "L" -> runLedgerScreen();
                 case "X" -> System.out.println("Goodbye!");
                 default -> System.out.println("That isn't a command. Try again.");
@@ -80,7 +81,18 @@ public class AccountingLedgerApp {
 
     // ---------- Actions: do one thing, wait for Enter, then return to the screen ----------
 
-    public static void addPayment() {
+    public static void addDeposit() {
+        System.out.print("Title: ");
+        String title = scanner.nextLine();
+        System.out.print("Year: ");
+        // read the whole line, then turn it into a number
+        int year = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Added " + title + " (" + year + ")");
+        pressEnterToContinue();
+    }
+
+    public static void makePayment() {
         System.out.print("Title: ");
         String title = scanner.nextLine();
         System.out.print("Year: ");
