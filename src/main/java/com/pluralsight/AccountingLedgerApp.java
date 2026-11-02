@@ -18,10 +18,11 @@ public class AccountingLedgerApp {
         do {
             System.out.println();
             System.out.println("=== Home ===");
-            System.out.println("A) Add Movie");
-            System.out.println("B) Browse Movies");
+            System.out.println("D) Add Deposit");
+            System.out.println("P) Make Payment");
+            System.out.println("L) Ledger");
             System.out.println("X) Exit");
-            System.out.print("Enter a command: ");
+            System.out.print("What would you like to do?: ");
             command = scanner.nextLine().trim().toUpperCase();
 
             switch (command) {
