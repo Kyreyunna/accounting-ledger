@@ -39,20 +39,20 @@ public class AccountingLedgerApp {
         String command;
         do {
             System.out.println();
-            System.out.println("=== Browse Movies ===");
-            System.out.println("A) All Movies");
-            System.out.println("W) Watched");
-            System.out.println("U) Unwatched");
-            System.out.println("S) Search");
+            System.out.println("=== Ledger ===");
+            System.out.println("A) All Transactions");
+            System.out.println("D) Deposits");
+            System.out.println("P) Payments");
+            System.out.println("R) Reports");
             System.out.println("H) Home");
             System.out.print("Enter a command: ");
             command = scanner.nextLine().trim().toUpperCase();
 
             switch (command) {
                 case "A" -> displayAllMovies();
-                case "W" -> displayWatchedMovies();
-                case "U" -> displayUnwatchedMovies();
-                case "S" -> runSearchScreen();
+                case "D" -> displayWatchedMovies();
+                case "P" -> displayUnwatchedMovies();
+                case "R" -> runSearchScreen();
                 case "H" -> System.out.println("Back to Home");
                 default -> System.out.println("That isn't a command. Try again.");
             }
