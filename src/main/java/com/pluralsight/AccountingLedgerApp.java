@@ -26,15 +26,15 @@ public class AccountingLedgerApp {
             command = scanner.nextLine().trim().toUpperCase();
 
             switch (command) {
-                case "A" -> addMovie();
-                case "B" -> runBrowseScreen();
+                case "D" -> addPayment();
+                case "L" -> runLedgerScreen();
                 case "X" -> System.out.println("Goodbye!");
                 default -> System.out.println("That isn't a command. Try again.");
             }
         } while (!command.equals("X"));
     }
 
-    public static void runBrowseScreen() {
+    public static void runLedgerScreen() {
         String command;
         do {
             System.out.println();
@@ -80,7 +80,7 @@ public class AccountingLedgerApp {
 
     // ---------- Actions: do one thing, wait for Enter, then return to the screen ----------
 
-    public static void addMovie() {
+    public static void addPayment() {
         System.out.print("Title: ");
         String title = scanner.nextLine();
         System.out.print("Year: ");
