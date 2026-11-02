@@ -1,0 +1,213 @@
+date|time|description|vendor|amount
+2025-01-01|19:24:54|Coffee|Best Buy|-109.79
+2025-01-03|19:36:49|Dinner|Costco|-168.54
+2025-01-06|19:17:58|Invoice Paid|Tax Refund|2458.0
+2025-01-16|01:12:48|Hardware Upgrade|Apple|-314.27
+2025-01-16|03:09:16|Cloud Storage|Netflix|-20.35
+2025-01-17|01:34:37|Groceries|Costco|-408.18
+2025-01-21|21:13:30|Bi-weekly Salary|Dividend Payment|3947.04
+2025-01-25|16:17:05|Reimbursement|Bonus Payout|1956.2
+2025-01-27|06:39:56|Commute|McDonalds|-394.15
+2025-01-29|09:49:04|Fuel|Starbucks|-400.99
+2025-02-04|22:28:03|Fuel|Adobe|-403.63
+2025-02-06|16:15:40|Bi-weekly Salary|Rental Income|1185.87
+2025-02-07|22:05:29|Commute|Netflix|-473.25
+2025-02-10|14:14:43|Coffee|Adobe|-402.69
+2025-02-11|16:57:34|Software License|Uber|-135.92
+2025-02-12|07:45:47|Monthly Subscription|McDonalds|-490.59
+2025-02-15|09:08:56|Invoice Paid|Tax Refund|2308.28
+2025-02-18|23:47:32|Fuel|Walmart|-81.26
+2025-02-20|05:23:15|Reimbursement|Dividend Payment|4984.33
+2025-02-20|18:01:43|Cloud Storage|Uber|-380.92
+2025-02-25|17:53:15|Office Supplies|Netflix|-389.61
+2025-03-02|06:16:41|Cloud Storage|Starbucks|-359.29
+2025-03-05|05:12:10|Fuel|Apple|-161.81
+2025-03-08|00:55:43|Contract Milestone|Standard Payroll|4015.08
+2025-03-10|03:30:06|Monthly Subscription|McDonalds|-215.24
+2025-03-11|16:55:53|Monthly Subscription|Starbucks|-232.96
+2025-03-22|21:19:31|Bi-weekly Salary|Interest Credit|1049.68
+2025-03-29|15:27:06|Hardware Upgrade|McDonalds|-24.03
+2025-03-31|17:20:29|Coffee|McDonalds|-192.2
+2025-04-02|17:40:48|Groceries|Apple|-304.32
+2025-04-04|12:30:03|Bi-weekly Salary|Interest Credit|4919.86
+2025-04-08|17:21:59|Quarterly Bonus|Bonus Payout|4069.53
+2025-04-11|01:17:08|Cash Deposit|Freelance Work|4905.78
+2025-04-14|07:15:18|Invoice Paid|Bonus Payout|4399.21
+2025-04-21|02:00:51|Hardware Upgrade|Shell|-354.01
+2025-04-23|17:01:27|Dinner|Steam|-343.7
+2025-04-24|23:35:40|Commute|Netflix|-498.56
+2025-04-27|03:40:21|Groceries|Adobe|-28.81
+2025-05-02|17:06:15|Hardware Upgrade|Netflix|-279.12
+2025-05-03|22:49:09|Commute|Uber|-189.82
+2025-05-06|17:07:07|Bi-weekly Salary|Interest Credit|4248.83
+2025-05-10|03:38:22|Office Supplies|Adobe|-498.61
+2025-05-12|21:54:13|Contract Milestone|Bonus Payout|1239.96
+2025-05-18|15:55:44|Groceries|Walmart|-60.69
+2025-05-19|06:08:48|Monthly Subscription|Home Depot|-151.11
+2025-05-20|02:16:39|Monthly Subscription|Amazon|-100.59
+2025-05-20|15:15:32|Fuel|Walmart|-364.53
+2025-05-21|22:15:52|Fuel|Netflix|-294.15
+2025-05-24|23:50:05|Monthly Subscription|Target|-202.34
+2025-05-29|08:11:20|Software License|Target|-392.73
+2025-05-29|15:38:53|Groceries|Costco|-384.32
+2025-05-30|02:48:42|Software License|Target|-454.86
+2025-06-02|05:53:50|Software License|Netflix|-268.95
+2025-06-05|14:36:08|Office Supplies|Best Buy|-398.38
+2025-06-11|11:05:07|Monthly Subscription|Steam|-373.72
+2025-06-13|07:14:32|Commute|Walmart|-275.77
+2025-06-13|17:30:23|Office Supplies|Adobe|-316.33
+2025-06-15|15:54:47|Cash Deposit|Vertex Logistics|3557.24
+2025-06-17|20:07:03|Commute|Home Depot|-445.99
+2025-06-19|11:15:23|Dinner|Shell|-175.96
+2025-06-23|23:15:10|Hardware Upgrade|Steam|-285.42
+2025-06-25|05:18:42|Commute|McDonalds|-17.89
+2025-06-26|05:10:05|Software License|Apple|-250.62
+2025-07-02|04:14:43|Office Supplies|Netflix|-82.78
+2025-07-04|19:12:33|Fuel|Target|-19.09
+2025-07-08|04:00:39|Commute|Adobe|-449.05
+2025-07-08|22:56:45|Hardware Upgrade|Netflix|-329.58
+2025-07-11|09:37:14|Invoice Paid|Interest Credit|3453.88
+2025-07-11|20:10:31|Office Supplies|Netflix|-48.61
+2025-07-13|06:16:16|Office Supplies|Apple|-163.09
+2025-07-15|10:36:57|Software License|Shell|-345.14
+2025-07-18|13:53:20|Coffee|Uber|-112.6
+2025-07-22|14:56:19|Reimbursement|Standard Payroll|3339.83
+2025-08-01|02:06:50|Quarterly Bonus|Interest Credit|4341.43
+2025-08-09|01:17:48|Groceries|Steam|-74.93
+2025-08-16|18:41:22|Groceries|Starbucks|-42.35
+2025-08-21|21:46:35|Bi-weekly Salary|Dividend Payment|3631.12
+2025-08-22|10:04:24|Groceries|Starbucks|-353.29
+2025-08-23|09:09:43|Software License|Home Depot|-69.28
+2025-08-25|08:12:49|Office Supplies|Home Depot|-476.52
+2025-08-29|20:58:24|Reimbursement|Dividend Payment|3100.77
+2025-09-01|03:09:24|Office Supplies|Walmart|-78.91
+2025-09-01|07:11:23|Monthly Subscription|Apple|-467.16
+2025-09-06|07:33:54|Cloud Storage|McDonalds|-375.9
+2025-09-08|11:07:44|Cloud Storage|Starbucks|-450.53
+2025-09-10|02:09:35|Coffee|Adobe|-106.12
+2025-09-12|07:04:13|Commute|Uber|-107.39
+2025-09-20|15:34:11|Groceries|Shell|-336.24
+2025-09-21|17:22:42|Dinner|Walmart|-155.92
+2025-09-23|13:06:04|Software License|Shell|-105.95
+2025-09-24|14:28:01|Office Supplies|Best Buy|-263.54
+2025-09-28|23:27:12|Groceries|Best Buy|-265.68
+2025-09-29|04:59:30|Hardware Upgrade|Walmart|-184.14
+2025-09-30|03:06:34|Office Supplies|Uber|-417.5
+2025-09-30|17:12:25|Fuel|Starbucks|-441.75
+2025-10-02|02:16:50|Monthly Subscription|Uber|-264.17
+2025-10-04|04:23:14|Monthly Subscription|Adobe|-316.01
+2025-10-05|20:26:51|Monthly Subscription|Starbucks|-485.54
+2025-10-08|14:11:25|Software License|Shell|-231.44
+2025-10-10|00:27:48|Groceries|Steam|-5.05
+2025-10-13|22:52:51|Dinner|Uber|-86.75
+2025-10-16|02:40:47|Monthly Subscription|Walmart|-32.58
+2025-10-18|09:39:26|Software License|Target|-426.87
+2025-10-26|15:45:23|Commute|McDonalds|-163.29
+2025-10-28|17:34:04|Contract Milestone|Standard Payroll|2872.65
+2025-10-29|01:08:34|Quarterly Bonus|Bonus Payout|773.56
+2025-10-30|23:31:14|Cloud Storage|Steam|-490.49
+2025-11-01|17:38:52|Office Supplies|Home Depot|-386.85
+2025-11-05|00:22:14|Reimbursement|Standard Payroll|4077.46
+2025-11-09|00:14:14|Office Supplies|Uber|-187.64
+2025-11-10|10:18:41|Hardware Upgrade|Uber|-203.37
+2025-11-20|16:13:05|Commute|Apple|-230.04
+2025-11-28|09:03:10|Monthly Subscription|McDonalds|-31.68
+2025-11-28|17:22:14|Hardware Upgrade|Adobe|-464.28
+2025-11-30|10:47:30|Cloud Storage|Apple|-115.82
+2025-12-04|16:18:22|Investment Return|Freelance Work|4215.32
+2025-12-05|12:27:14|Cash Deposit|Dividend Payment|2960.41
+2025-12-09|02:41:32|Coffee|Steam|-168.73
+2025-12-15|04:19:25|Dinner|Shell|-393.73
+2025-12-18|19:03:58|Contract Milestone|Rental Income|2918.22
+2025-12-26|04:46:52|Office Supplies|Walmart|-274.11
+2025-12-26|23:02:45|Investment Return|Rental Income|2771.81
+2025-12-27|09:40:05|Coffee|Netflix|-486.84
+2025-12-28|08:38:33|Cash Deposit|Bonus Payout|4036.13
+2025-12-29|16:19:36|Fuel|Uber|-450.0
+2025-12-31|14:26:47|Software License|Steam|-193.64
+2026-01-09|14:30:50|Groceries|Starbucks|-377.8
+2026-01-11|18:52:55|Investment Return|Tax Refund|3975.33
+2026-01-13|10:39:50|Coffee|Starbucks|-179.01
+2026-01-18|12:37:19|Cash Deposit|Tax Refund|1309.92
+2026-01-25|00:35:17|Software License|Steam|-226.43
+2026-01-29|00:38:24|Cash Deposit|Vertex Logistics|3902.76
+2026-01-30|12:08:35|Investment Return|Bonus Payout|4875.68
+2026-02-03|03:53:12|Cloud Storage|Apple|-388.2
+2026-02-10|21:03:30|Invoice Paid|Dividend Payment|4481.57
+2026-02-12|14:16:56|Monthly Subscription|Starbucks|-11.06
+2026-02-13|21:30:52|Hardware Upgrade|Uber|-496.39
+2026-02-15|05:35:03|Investment Return|Tax Refund|2796.6
+2026-02-21|02:06:42|Investment Return|Tax Refund|1759.39
+2026-02-22|16:46:24|Quarterly Bonus|Tax Refund|4500.69
+2026-02-28|08:26:11|Coffee|Costco|-300.11
+2026-02-28|13:55:49|Software License|Target|-420.43
+2026-03-06|06:31:58|Coffee|Best Buy|-264.86
+2026-03-08|17:14:51|Monthly Subscription|Costco|-380.07
+2026-03-14|05:43:21|Bi-weekly Salary|Dividend Payment|2117.67
+2026-03-15|02:07:05|Contract Milestone|Dividend Payment|1382.08
+2026-03-19|03:03:00|Contract Milestone|Freelance Work|1689.0
+2026-03-20|19:53:44|Coffee|Netflix|-373.62
+2026-03-25|12:25:37|Fuel|Apple|-420.5
+2026-03-27|21:30:40|Cloud Storage|Walmart|-106.84
+2026-03-30|07:46:03|Groceries|Best Buy|-396.19
+2026-04-01|17:06:42|Reimbursement|Bonus Payout|2672.02
+2026-04-05|02:17:27|Fuel|Amazon|-378.8
+2026-04-08|22:57:41|Reimbursement|Freelance Work|2450.77
+2026-04-11|07:53:45|Commute|Walmart|-172.32
+2026-04-13|11:55:14|Groceries|Costco|-122.47
+2026-04-16|06:16:28|Coffee|Netflix|-169.12
+2026-04-18|15:54:49|Investment Return|Freelance Work|2034.57
+2026-04-22|22:51:53|Dinner|Uber|-72.08
+2026-04-24|12:56:47|Monthly Subscription|Steam|-458.31
+2026-04-29|05:57:45|Software License|Steam|-115.77
+2026-04-30|06:25:39|Dinner|Shell|-342.57
+2026-05-01|12:07:21|Reimbursement|Freelance Work|2043.77
+2026-05-03|10:00:48|Dinner|Starbucks|-482.22
+2026-05-05|02:28:44|Contract Milestone|Bonus Payout|1889.5
+2026-05-10|19:42:51|Cloud Storage|McDonalds|-497.13
+2026-05-12|06:33:02|Cloud Storage|Target|-277.35
+2026-05-18|11:48:31|Fuel|Apple|-494.9
+2026-05-23|07:19:23|Cloud Storage|Uber|-205.89
+2026-05-27|02:06:46|Office Supplies|Netflix|-346.68
+2026-05-30|23:18:45|Coffee|Apple|-162.64
+2026-06-01|19:20:09|Hardware Upgrade|Adobe|-99.29
+2026-06-02|22:23:39|Cloud Storage|Apple|-385.63
+2026-06-08|15:40:28|Contract Milestone|Bonus Payout|1106.78
+2026-06-10|05:37:54|Monthly Subscription|Steam|-252.86
+2026-06-12|07:41:02|Dinner|Netflix|-183.98
+2026-06-19|13:36:36|Bi-weekly Salary|Bonus Payout|2338.96
+2026-06-22|05:02:23|Office Supplies|Home Depot|-400.0
+2026-06-27|16:51:04|Software License|Starbucks|-406.19
+2026-06-29|03:16:45|Coffee|Costco|-224.06
+2026-06-30|09:13:52|Cloud Storage|Starbucks|-283.15
+2026-07-01|22:31:33|Bi-weekly Salary|Freelance Work|1774.52
+2026-07-09|18:36:44|Coffee|Uber|-226.97
+2026-07-11|14:39:22|Coffee|Apple|-422.2
+2026-07-14|22:39:38|Dinner|Target|-298.84
+2026-07-17|17:40:12|Groceries|Walmart|-11.78
+2026-07-21|03:14:00|Groceries|Walmart|-46.59
+2026-07-22|16:35:50|Cash Deposit|Dividend Payment|2205.83
+2026-07-26|03:38:12|Reimbursement|Freelance Work|2939.75
+2026-08-03|19:59:17|Dinner|Home Depot|-251.79
+2026-08-04|19:51:49|Fuel|Shell|-274.67
+2026-08-07|01:44:21|Office Supplies|Costco|-78.74
+2026-08-14|05:46:44|Reimbursement|Standard Payroll|2417.28
+2026-08-22|02:26:24|Groceries|Starbucks|-229.9
+2026-08-22|20:56:06|Coffee|Costco|-303.95
+2026-08-24|13:10:05|Dinner|Amazon|-207.67
+2026-08-26|19:19:29|Dinner|Uber|-432.75
+2026-08-30|03:59:01|Fuel|McDonalds|-325.87
+2026-08-31|15:17:28|Quarterly Bonus|Interest Credit|1472.76
+2026-09-03|08:03:07|Fuel|Target|-374.08
+2026-09-09|03:08:59|Coffee|McDonalds|-253.08
+2026-09-13|11:18:37|Investment Return|Standard Payroll|3604.21
+2026-09-14|00:42:03|Reimbursement|Dividend Payment|737.83
+2026-09-18|17:31:28|Hardware Upgrade|Adobe|-344.61
+2026-09-19|15:02:09|Dinner|Netflix|-85.49
+2026-09-20|14:49:38|Invoice Paid|Standard Payroll|2343.6
+2026-09-30|23:12:39|Dinner|Costco|-250.2
+2026-10-06|17:58:18|Monthly Subscription|McDonalds|-351.95
+2026-10-14|08:51:41|Investment Return|Dividend Payment|4284.55
+2026-10-23|23:56:18|Commute|Costco|-321.23
+2026-10-28|10:45:21|Fuel|Home Depot|-323.94
+2026-10-29|17:57:33|Cash Deposit|Vertex Logistics|4143.76
