@@ -4,12 +4,15 @@ public class Transaction {
     private String vendor;
     private int date;
     private int time;
+    private String description;
     private double amount;
-    public Transaction(int date, int time, String vendor, double amount) {
+
+    public Transaction(int date, int time, String description, String vendor, double amount) {
         this.vendor = vendor;
         this.amount = amount;
-        this.date= date;
+        this.date = date;
         this.time = time;
+        this.description = description;
     }
 
     public String getVendor() {
@@ -34,6 +37,14 @@ public class Transaction {
 
     public void setTime(int time) {
         this.time = time;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getAmount() {
