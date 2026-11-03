@@ -75,10 +75,10 @@ public class AccountingLedgerApp {
 
             switch (command) {
                 case "1" -> searchByMonth();
-                case "2" -> searchByYear();
+                case "2" -> searchByPreviousMonth();
                 case "3" -> searchByYear();
-                case "4" -> searchByYear();
-                case "5" -> searchByYear();
+                case "4" -> searchByPreviousYear();
+                case "5" -> searchByVendor();
                 case "0" -> System.out.println("Back to Browse Movies");
                 default -> System.out.println("That isn't a command. Try again.");
             }
@@ -132,7 +132,31 @@ public class AccountingLedgerApp {
         pressEnterToContinue();
     }
 
+    public static void searchByPreviousMonth() {
+        System.out.print("Year to search for: ");
+        int year = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("TODO: display the movies from " + year);
+        pressEnterToContinue();
+    }
+
     public static void searchByYear() {
+        System.out.print("Year to search for: ");
+        int year = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("TODO: display the movies from " + year);
+        pressEnterToContinue();
+    }
+
+    public static void searchByPreviousYear() {
+        System.out.print("Year to search for: ");
+        int year = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("TODO: display the movies from " + year);
+        pressEnterToContinue();
+    }
+
+    public static void searchByVendor() {
         System.out.print("Year to search for: ");
         int year = Integer.parseInt(scanner.nextLine());
 
