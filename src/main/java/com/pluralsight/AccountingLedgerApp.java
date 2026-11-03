@@ -88,13 +88,13 @@ public class AccountingLedgerApp {
     // ---------- Actions: do one thing, wait for Enter, then return to the screen ----------
 
     public static void addDeposit() {
-        System.out.print("Title: ");
-        String title = scanner.nextLine();
-        System.out.print("Year: ");
+        System.out.print("Vendor: ");
+        String vendor = scanner.nextLine();
+        System.out.print("Amount: ");
         // read the whole line, then turn it into a number
-        int year = Integer.parseInt(scanner.nextLine());
+        int amount = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("Added " + title + " (" + year + ")");
+        System.out.println("Added " + vendor + " (" + amount + ")");
         pressEnterToContinue();
     }
 
