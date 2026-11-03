@@ -1,11 +1,13 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AccountingLedgerApp {
 
     static Scanner scanner = new Scanner(System.in);
-
+    static List<Transaction> transactionList= new ArrayList<>();
     public static void main(String[] args) {
 
         runHomeScreen();
