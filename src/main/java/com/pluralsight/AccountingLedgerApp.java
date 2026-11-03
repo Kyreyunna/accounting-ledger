@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,10 +12,36 @@ public class AccountingLedgerApp {
     static Scanner scanner = new Scanner(System.in);
     static List<Transaction> transactionList= new ArrayList<>();
     public static void main(String[] args) {
-
+        loadTransactions();
         runHomeScreen();
     }
+    public static void loadTransactions(){
+        try {
+            // create a FileReader connected to the file
+            FileReader fileReader = new FileReader("transactions.csv");
+            // create a BufferedReader to manage the input stream
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
+            // read the first line
+            String line = bufferedReader.readLine();
+
+            // readLine() returns null when there are no more lines
+            while (line != null) {
+                System.out.println(line);
+                // read the next line
+                line = bufferedReader.readLine();
+            }
+
+            // close the reader to release the file
+            bufferedReader.close();
+        } catch (IOException e) {
+            // print the details so the error is never hidden from you
+            e.printStackTrace();
+        }
+    }
+    public static void addToTransactionList(Transaction transaction){
+        transactionList.add(transaction);
+    }
     // ---------- Screens: a menu that repeats until the user picks the way out ----------
 
     public static void runHomeScreen() {
@@ -112,6 +141,7 @@ public class AccountingLedgerApp {
     }
 
     public static void displayAllTransactions() {
+
         System.out.println("TODO: display all movies");
         pressEnterToContinue();
     }
