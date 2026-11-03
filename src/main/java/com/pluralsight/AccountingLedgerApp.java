@@ -64,15 +64,21 @@ public class AccountingLedgerApp {
         do {
             System.out.println();
             System.out.println("=== Search ===");
-            System.out.println("1) By Title");
-            System.out.println("2) By Year");
+            System.out.println("1) Month to Date");
+            System.out.println("2) Previous Month");
+            System.out.println("3) Year To Date");
+            System.out.println("4) Previous Year");
+            System.out.println("5) Search by Vendor");
             System.out.println("0) Back");
             System.out.print("Enter a command: ");
             command = scanner.nextLine().trim().toUpperCase();
 
             switch (command) {
-                case "1" -> searchByTitle();
+                case "1" -> searchByMonth();
                 case "2" -> searchByYear();
+                case "3" -> searchByYear();
+                case "4" -> searchByYear();
+                case "5" -> searchByYear();
                 case "0" -> System.out.println("Back to Browse Movies");
                 default -> System.out.println("That isn't a command. Try again.");
             }
@@ -118,7 +124,7 @@ public class AccountingLedgerApp {
         pressEnterToContinue();
     }
 
-    public static void searchByTitle() {
+    public static void searchByMonth() {
         System.out.print("Title to search for: ");
         String title = scanner.nextLine();
 
