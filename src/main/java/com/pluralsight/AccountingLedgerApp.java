@@ -49,17 +49,17 @@ public class AccountingLedgerApp {
             command = scanner.nextLine().trim().toUpperCase();
 
             switch (command) {
-                case "A" -> displayAllMovies();
-                case "D" -> displayWatchedMovies();
-                case "P" -> displayUnwatchedMovies();
-                case "R" -> runSearchScreen();
+                case "A" -> displayAllTransactions();
+                case "D" -> displayDeposits();
+                case "P" -> displayPayments();
+                case "R" -> runReportsScreen();
                 case "H" -> System.out.println("Back to Home");
                 default -> System.out.println("That isn't a command. Try again.");
             }
         } while (!command.equals("H"));
     }
 
-    public static void runSearchScreen() {
+    public static void runReportsScreen() {
         String command;
         do {
             System.out.println();
@@ -103,17 +103,17 @@ public class AccountingLedgerApp {
         pressEnterToContinue();
     }
 
-    public static void displayAllMovies() {
+    public static void displayAllTransactions() {
         System.out.println("TODO: display all movies");
         pressEnterToContinue();
     }
 
-    public static void displayWatchedMovies() {
+    public static void displayDeposits() {
         System.out.println("TODO: display the movies you've watched");
         pressEnterToContinue();
     }
 
-    public static void displayUnwatchedMovies() {
+    public static void displayPayments() {
         System.out.println("TODO: display the movies you haven't watched");
         pressEnterToContinue();
     }
