@@ -165,10 +165,10 @@ public class AccountingLedgerApp {
         String vendor = scanner.nextLine();
 
         System.out.print("Enter payment amount: ");
-        // Make sure payments are negative (-), matching your CSV example
+        // Make sure payments are negative (-)
         double amount = -Math.abs(Double.parseDouble(scanner.nextLine()));
 
-        // Remove symbols and parse strings into ints for your Transaction constructor
+        // Remove symbols and parse strings into ints for Transaction constructor
         int date = Integer.parseInt(dateStr.replace("-", ""));
         int time = Integer.parseInt(timeStr.replace(":", ""));
 
