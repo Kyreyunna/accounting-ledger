@@ -1,6 +1,8 @@
 package com.pluralsight;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,13 +29,29 @@ public class AccountingLedgerApp {
 
             // readLine() returns null when there are no more lines
             while (line != null) {
-                System.out.println(line);
+                // Skip empty lines to prevent crashes
+                if (!line.trim().isEmpty()) {
+                    String[] parts = line.split("\\|");
+                    if (parts.length >= 5) {
+                        // Parse each column using LocalDate and LocalTime
+                        LocalDate date = LocalDate.parse(parts[0]);
+                        LocalTime time = LocalTime.parse(parts[1]);
+                        String description = parts[2];
+                        String vendor = parts[3];
+                        double amount = Double.parseDouble(parts[4]);
+
+                        // Create transaction object and add to list
+                        Transaction transaction = new Transaction(date, time, description, vendor, amount);
+                        transactionList.add(transaction);
+                    }
+                }
                 // read the next line
                 line = bufferedReader.readLine();
             }
 
             // close the reader to release the file
             bufferedReader.close();
+            System.out.println("Loaded " + transactionList.size() + " transactions from file.");
         } catch (IOException e) {
             // print the details so the error is never hidden from you
             e.printStackTrace();
@@ -135,8 +153,8 @@ public class AccountingLedgerApp {
         System.out.print("Enter deposit amount: ");
         double amount = Double.parseDouble(scanner.nextLine());
 
-        int date = Integer.parseInt(dateStr.replace("-", ""));
-        int time = Integer.parseInt(timeStr.replace(":", ""));
+        LocalDate date = LocalDate.parse(dateStr);
+        LocalTime time = LocalTime.parse(timeStr);
 
         // Create the new transaction object
         Transaction newDeposit = new Transaction(date, time, description, vendor, amount);
@@ -168,9 +186,9 @@ public class AccountingLedgerApp {
         // Make sure payments are negative (-)
         double amount = -Math.abs(Double.parseDouble(scanner.nextLine()));
 
-        // Remove symbols and parse strings into ints for Transaction constructor
-        int date = Integer.parseInt(dateStr.replace("-", ""));
-        int time = Integer.parseInt(timeStr.replace(":", ""));
+        // Parse user strings directly into LocalDate and LocalTime
+        LocalDate date = LocalDate.parse(dateStr);
+        LocalTime time = LocalTime.parse(timeStr);
 
         // Create the transaction object using the integers
         Transaction newPayment = new Transaction(date, time, description, vendor, amount);
