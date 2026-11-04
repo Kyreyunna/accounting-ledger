@@ -151,8 +151,15 @@ public class AccountingLedgerApp {
         System.out.print("Enter vendor: ");
         String vendor = scanner.nextLine();
 
-        System.out.print("Enter deposit amount: ");
-        double amount = Double.parseDouble(scanner.nextLine());
+        // Loop until the user enters a valid amount greater than 0
+        double amount;
+        do {
+            System.out.print("Enter deposit amount (must be > 0): ");
+            amount = Double.parseDouble(scanner.nextLine());
+            if (amount <= 0) {
+                System.out.println("Amount must be greater than zero. Try again.");
+            }
+        } while (amount <= 0);
 
         LocalDate date = LocalDate.parse(dateStr);
         LocalTime time = LocalTime.parse(timeStr);
@@ -187,7 +194,7 @@ public class AccountingLedgerApp {
         // Make sure payments are negative (-)
         double amount = -Math.abs(Double.parseDouble(scanner.nextLine()));
 
-        // Parse user strings directly into LocalDate and LocalTime
+        // *Parse user strings directly into LocalDate and LocalTime
         LocalDate date = LocalDate.parse(dateStr);
         LocalTime time = LocalTime.parse(timeStr);
 
