@@ -239,28 +239,28 @@ public class AccountingLedgerApp {
     }
 
     public static void displayDeposits() {
-        System.out.println("TODO: display the movies you've watched");
+        System.out.println("TODO: display the deposits");
         pressEnterToContinue();
     }
 
     public static void displayPayments() {
-        System.out.println("TODO: display the movies you haven't watched");
+        System.out.println("TODO: display the payments");
         pressEnterToContinue();
     }
 
     public static void searchByMonth() {
-        System.out.print("Title to search for: ");
+        System.out.print("Month to search for: ");
         String title = scanner.nextLine();
 
-        System.out.println("TODO: display the movies whose title matches " + title);
+        System.out.println("TODO: display the transaction that matches " + title);
         pressEnterToContinue();
     }
 
     public static void searchByPreviousMonth() {
-        System.out.print("Year to search for: ");
+        System.out.print("Previous month: ");
         int year = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("TODO: display the movies from " + year);
+        System.out.println("TODO: display the transactions from " + year);
         pressEnterToContinue();
     }
 
@@ -268,23 +268,23 @@ public class AccountingLedgerApp {
         System.out.print("Year to search for: ");
         int year = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("TODO: display the movies from " + year);
+        System.out.println("TODO: display the transactions from " + year);
         pressEnterToContinue();
     }
 
     public static void searchByPreviousYear() {
-        System.out.print("Year to search for: ");
+        System.out.print("Previous Year to search for: ");
         int year = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("TODO: display the movies from " + year);
+        System.out.println("TODO: display the transactions from " + year);
         pressEnterToContinue();
     }
 
     public static void searchByVendor() {
-        System.out.print("Year to search for: ");
+        System.out.print("Vendor to search for: ");
         int year = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("TODO: display the movies from " + year);
+        System.out.println("TODO: display the transactions from " + year);
         pressEnterToContinue();
     }
 
