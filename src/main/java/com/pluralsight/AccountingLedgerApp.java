@@ -180,16 +180,15 @@ public class AccountingLedgerApp {
     }
 
     public static void makePayment() {
-        //try catch
-        System.out.println(LocalDate.now());
-        System.out.println("Press Enter");
-        String dateStr = scanner.nextLine(); // User types: 2025-01-01
-        //parse
+        LocalDate date = LocalDate.now();
+        LocalTime time = LocalTime.now();
 
-        System.out.println(LocalTime.now());
-        System.out.println("Press Enter");
-        String timeStr = scanner.nextLine(); // User types: 19:24:54
-        //parse
+        // Convert them to Strings so you can save them to CSV
+        String dateStr = date.toString(); // e.g., "2026-11-04"
+        String timeStr = time.format(DateTimeFormatter.ofPattern("HH:mm:ss")); // e.g., "11:40:15"
+
+        System.out.println("Date: " + dateStr);
+        System.out.println("Time: " + timeStr);
 
         System.out.print("Enter description: ");
         String description = scanner.nextLine();
