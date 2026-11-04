@@ -141,11 +141,12 @@ public class AccountingLedgerApp {
     // ---------- Actions: do one thing, wait for Enter, then return to the screen ----------
 
     public static void addDeposit() {
-        System.out.print(LocalDate.now());
-        String dateStr = scanner.nextLine();
+        LocalDate date = LocalDate.now();
+        LocalTime time = LocalTime.now();
 
-        System.out.print(LocalTime.now());
-        String timeStr = scanner.nextLine();
+        // Convert them to Strings so you can save them to CSV
+        String dateStr = date.toString(); // e.g., "2026-11-04"
+        String timeStr = time.format(DateTimeFormatter.ofPattern("HH:mm:ss")); // e.g., "11:40:15"
 
         System.out.print("Enter description: ");
         String description = scanner.nextLine();
@@ -162,9 +163,6 @@ public class AccountingLedgerApp {
                 System.out.println("Amount must be greater than zero. Try again.");
             }
         } while (amount <= 0);
-
-        LocalDate date = LocalDate.parse(dateStr);
-        LocalTime time = LocalTime.parse(timeStr);
 
         // Create the new transaction object
         Transaction newDeposit = new Transaction(date, time, description, vendor, amount);
@@ -206,18 +204,6 @@ public class AccountingLedgerApp {
         } while (inputAmount <= 0);
 
         double amount = -Math.abs(inputAmount);
-
-        // *Parse user strings directly into LocalDate and LocalTime
-        LocalDate date = LocalDate.parse(dateStr);
-        LocalTime time = LocalTime.parse(timeStr);
-
-        //format time
-        LocalDateTime today = LocalDateTime.now();
-        System.out.println("The time is: " + today);
-        // 1. Create a custom template ("formatter") that decides how our date and time will look
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd|HH:mm:ss|");
-        String formattedDate = today.format(formatter);
-        System.out.println("The date is: " + formattedDate);
 
         // Create the transaction object using the integers
         Transaction newPayment = new Transaction(date, time, description, vendor, amount);
