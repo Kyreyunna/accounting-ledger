@@ -24,13 +24,16 @@ public class AccountingLedgerApp {
             // create a BufferedReader to manage the input stream
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            // read the first line
-            String line = bufferedReader.readLine();
+            // 1. Read and discard the header line so the loop ignores it
+            String headerLine = bufferedReader.readLine();
 
-            // readLine() returns null when there are no more lines
-            while (line != null) {
+            // read the first line
+            String line;
+
+            // The while loop goes here: reads the line and checks for null in one go
+            while ((line = bufferedReader.readLine()) != null) {
                 // Skip empty lines to prevent crashes
-                if (!line.trim().isEmpty()) {
+                if (!line.trim().isBlank()) {
                     String[] parts = line.split("\\|");
                     if (parts.length >= 5) {
                         // Parse each column using LocalDate and LocalTime
@@ -45,8 +48,6 @@ public class AccountingLedgerApp {
                         transactionList.add(transaction);
                     }
                 }
-                // read the next line
-                line = bufferedReader.readLine();
             }
 
             // close the reader to release the file
