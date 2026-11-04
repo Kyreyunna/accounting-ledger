@@ -2,7 +2,9 @@ package com.pluralsight;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -139,10 +141,10 @@ public class AccountingLedgerApp {
     // ---------- Actions: do one thing, wait for Enter, then return to the screen ----------
 
     public static void addDeposit() {
-        System.out.print("Enter date (YYYY-MM-DD): ");
+        System.out.print(LocalDate.now());
         String dateStr = scanner.nextLine();
 
-        System.out.print("Enter time (HH:mm:ss): ");
+        System.out.print(LocalTime.now());
         String timeStr = scanner.nextLine();
 
         System.out.print("Enter description: ");
@@ -178,13 +180,18 @@ public class AccountingLedgerApp {
     }
 
     public static void makePayment() {
-        System.out.print("Enter date (YYYY-MM-DD): ");
+        //try catch
+        System.out.println(LocalDate.now());
+        System.out.println("Press Enter");
         String dateStr = scanner.nextLine(); // User types: 2025-01-01
+        //parse
 
-        System.out.print("Enter time (HH:mm:ss): ");
+        System.out.println(LocalTime.now());
+        System.out.println("Press Enter");
         String timeStr = scanner.nextLine(); // User types: 19:24:54
+        //parse
 
-        System.out.print("Enter description/title: ");
+        System.out.print("Enter description: ");
         String description = scanner.nextLine();
 
         System.out.print("Enter vendor: ");
@@ -204,6 +211,14 @@ public class AccountingLedgerApp {
         // *Parse user strings directly into LocalDate and LocalTime
         LocalDate date = LocalDate.parse(dateStr);
         LocalTime time = LocalTime.parse(timeStr);
+
+        //format time
+        LocalDateTime today = LocalDateTime.now();
+        System.out.println("The time is: " + today);
+        // 1. Create a custom template ("formatter") that decides how our date and time will look
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd|HH:mm:ss|");
+        String formattedDate = today.format(formatter);
+        System.out.println("The date is: " + formattedDate);
 
         // Create the transaction object using the integers
         Transaction newPayment = new Transaction(date, time, description, vendor, amount);
@@ -239,7 +254,8 @@ public class AccountingLedgerApp {
     }
 
     public static void displayDeposits() {
-        System.out.println("TODO: display the deposits");
+        System.out.println();
+        System.out.println("=== All Deposits ===");
         pressEnterToContinue();
     }
 
