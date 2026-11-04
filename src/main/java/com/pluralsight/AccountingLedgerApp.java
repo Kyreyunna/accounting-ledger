@@ -2,7 +2,6 @@ package com.pluralsight;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -154,13 +153,17 @@ public class AccountingLedgerApp {
         System.out.print("Enter vendor: ");
         String vendor = scanner.nextLine();
 
-        // Loop until the user enters a valid amount greater than 0
         double amount;
         do {
             System.out.print("Enter deposit amount (must be > 0): ");
-            amount = Double.parseDouble(scanner.nextLine());
-            if (amount <= 0) {
-                System.out.println("Amount must be greater than zero. Try again.");
+            try {
+                amount = Double.parseDouble(scanner.nextLine());
+                if (amount <= 0) {
+                    System.out.println("Amount must be greater than zero. Try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number, like 89.50.");
+                amount = -1; // Keep the loop going if they type letters instead of a number
             }
         } while (amount <= 0);
 
@@ -169,14 +172,13 @@ public class AccountingLedgerApp {
 
         addToTransactionList(newDeposit);
 
-        // Save it to CSV file (create a CSV string format)
+        // Save it to CSV file
         String csvRow = dateStr + "|" + timeStr + "|" + description + "|" + vendor + "|" + amount;
         appendToCSV(csvRow);
 
         System.out.println("Deposit added and saved successfully!");
         pressEnterToContinue();
     }
-
     public static void makePayment() {
         LocalDate date = LocalDate.now();
         LocalTime time = LocalTime.now();
