@@ -120,13 +120,34 @@ public class AccountingLedgerApp {
     // ---------- Actions: do one thing, wait for Enter, then return to the screen ----------
 
     public static void addDeposit() {
-        System.out.print("Vendor: ");
-        String vendor = scanner.nextLine();
-        System.out.print("Amount: ");
-        // read the whole line, then turn it into a number
-        int amount = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter date (YYYY-MM-DD): ");
+        String dateStr = scanner.nextLine();
 
-        System.out.println("Added " + vendor + " (" + amount + ")");
+        System.out.print("Enter time (HH:mm:ss): ");
+        String timeStr = scanner.nextLine();
+
+        System.out.print("Enter description: ");
+        String description = scanner.nextLine();
+
+        System.out.print("Enter vendor: ");
+        String vendor = scanner.nextLine();
+
+        System.out.print("Enter deposit amount: ");
+        double amount = Double.parseDouble(scanner.nextLine());
+
+        int date = Integer.parseInt(dateStr.replace("-", ""));
+        int time = Integer.parseInt(timeStr.replace(":", ""));
+
+        // Create the new transaction object
+        Transaction newDeposit = new Transaction(date, time, description, vendor, amount);
+
+        addToTransactionList(newDeposit);
+
+        // Save it to CSV file (create a CSV string format)
+        String csvRow = dateStr + "|" + timeStr + "|" + description + "|" + vendor + "|" + amount;
+        appendToCSV(csvRow);
+
+        System.out.println("Deposit added and saved successfully!");
         pressEnterToContinue();
     }
 
@@ -142,7 +163,6 @@ public class AccountingLedgerApp {
     }
 
     public static void displayAllTransactions() {
-
         System.out.println("TODO: display all movies");
         pressEnterToContinue();
     }
