@@ -218,7 +218,23 @@ public class AccountingLedgerApp {
     }
 
     public static void displayAllTransactions() {
-        System.out.println("TODO: display all movies");
+        System.out.println();
+        System.out.println("=== All Transactions ===");
+
+        // Print a clean, formatted table header
+        System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        // Loop through the list (transactions are already loaded oldest to newest from the file)
+        for (Transaction t : transactionList) {
+            System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                    t.getDate(),
+                    t.getTime(),
+                    t.getDescription(),
+                    t.getVendor(),
+                    t.getAmount());
+        }
+
         pressEnterToContinue();
     }
 
