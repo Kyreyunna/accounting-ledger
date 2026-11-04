@@ -152,13 +152,35 @@ public class AccountingLedgerApp {
     }
 
     public static void makePayment() {
-        System.out.print("Title: ");
-        String title = scanner.nextLine();
-        System.out.print("Year: ");
-        // read the whole line, then turn it into a number
-        int year = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter date (YYYY-MM-DD): ");
+        String dateStr = scanner.nextLine(); // User types: 2025-01-01
 
-        System.out.println("Added " + title + " (" + year + ")");
+        System.out.print("Enter time (HH:mm:ss): ");
+        String timeStr = scanner.nextLine(); // User types: 19:24:54
+
+        System.out.print("Enter description/title: ");
+        String description = scanner.nextLine();
+
+        System.out.print("Enter vendor: ");
+        String vendor = scanner.nextLine();
+
+        System.out.print("Enter payment amount: ");
+        // Make sure payments are negative (-), matching your CSV example
+        double amount = -Math.abs(Double.parseDouble(scanner.nextLine()));
+
+        // Remove symbols and parse strings into ints for your Transaction constructor
+        int date = Integer.parseInt(dateStr.replace("-", ""));
+        int time = Integer.parseInt(timeStr.replace(":", ""));
+
+        // Create the transaction object using the integers
+        Transaction newPayment = new Transaction(date, time, description, vendor, amount);
+        addToTransactionList(newPayment);
+
+        // Format and append to CSV using the original strings (dateStr and timeStr)
+        String csvRow = dateStr + "|" + timeStr + "|" + description + "|" + vendor + "|" + amount;
+        appendToCSV(csvRow);
+
+        System.out.println("Payment made successfully!");
         pressEnterToContinue();
     }
 
