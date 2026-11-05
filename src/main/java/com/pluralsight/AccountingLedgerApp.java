@@ -160,14 +160,30 @@ public class AccountingLedgerApp {
                     break;
                 }
             } catch (Exception e) {
-                System.out.println("Please enter a valid word, like Hot Topic");
+                System.out.println("Please enter a valid word, like Doc Martens");
                 throw new RuntimeException(e);
 
             }break;
             }while(true);
 
-            System.out.print("Enter vendor: ");
-            String vendor = scanner.nextLine();
+        String vendor = "";
+        do {
+            System.out.print("Enter vendor(letters only):");
+            vendor = scanner.nextLine().trim( );
+            try {
+                if (vendor.isEmpty()) {
+                    System.out.println("This can't be blank.");
+                } else if (vendor.contains("|")) {
+                    System.out.println("Please don't use the | character.");
+                }else{
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Please enter a valid word, like Hot Topic");
+                throw new RuntimeException(e);
+
+            }break;
+        }while(true);
 
         double amount;
         do {
@@ -184,7 +200,7 @@ public class AccountingLedgerApp {
         } while (amount <= 0);
 
         // Create the new transaction object
-        Transaction newDeposit = new Transaction(date, time, description, vendor, amount);
+        Transaction newDeposit = new Transaction(date, time, vendor, vendor, amount);
 
         addToTransactionList(newDeposit);
 
@@ -192,7 +208,7 @@ public class AccountingLedgerApp {
         String csvRow = dateStr + "|" + timeStr + "|" + description + "|" + vendor + "|" + String.format("%.2f", amount);
         appendToCSV(csvRow);
 
-        System.out.println("Deposit added and saved successfully!");
+        System.out.println("Deposit added!");
         pressEnterToContinue();
     }
     public static void makePayment() {
