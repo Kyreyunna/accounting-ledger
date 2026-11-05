@@ -442,10 +442,27 @@ public class AccountingLedgerApp {
 
 
     public static void searchByPreviousYear() {
-        System.out.print("Previous Year to search for: ");
-        int year = Integer.parseInt(scanner.nextLine());
+        int previousYear = LocalDate.now().minusYears(1).getYear();
+        System.out.println();
+        System.out.println("=== Previous Year ===");
 
-        System.out.println("TODO: display the transactions from " + year);
+        // Print a clean, formatted table header
+        System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        // Loop through the list (transactions are already loaded oldest to newest from the file)
+
+        for (Transaction t : transactionList) {
+            int transactionYear = t.getDate().getYear();
+            if (transactionYear == previousYear) {
+                System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                        t.getDate(),
+                        t.getTime(),
+                        t.getDescription(),
+                        t.getVendor(),
+                        t.getAmount());
+            }
+        }
         pressEnterToContinue();
     }
 
