@@ -401,36 +401,40 @@ public class AccountingLedgerApp {
     }
 
     public static void searchByVendor() {
-        do{
-            System.out.print("Enter vendor(letters only):");
+        try {
+            do{
+                System.out.print("Enter vendor(letters only):");
 
-        String vendorInput = scanner.nextLine().trim( );
+            String vendorInput = scanner.nextLine().trim( );
 
-        for (Transaction t : transactionList) {
-            if (vendorInput.isEmpty()) {
-                System.out.println("This can't be blank.");
-            } else if (vendorInput.contains("|")) {
-                System.out.println("Please don't use the | character.");
+            for (Transaction t : transactionList) {
+                if (vendorInput.isEmpty()) {
+                    System.out.println("This can't be blank.");
+                } else if (vendorInput.contains("|")) {
+                    System.out.println("Please don't use the | character.");
+                }
+                //has to match vendor in the transaction list
+                String targetVendor = t.getVendor();
+                if (t.getVendor() == targetVendor) {
+                    System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                            t.getDate(),
+                            t.getTime(),
+                            t.getDescription(),
+                            t.getVendor(),
+                            t.getAmount());
+                }
+                if (t.getVendor().equalsIgnoreCase(vendorInput)) {
+                    System.out.println(vendorInput);
+                } else {
+                    System.out.println("could not find vendor");
+                }
+                System.out.println("displayed the transactions from " + vendorInput);
+                pressEnterToContinue();
             }
-            //has to match vendor in the transaction list
-            String targetVendor = t.getVendor();
-            if (t.getVendor() == targetVendor) {
-                System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
-                        t.getDate(),
-                        t.getTime(),
-                        t.getDescription(),
-                        t.getVendor(),
-                        t.getAmount());
-            }
-            if (t.getVendor().equalsIgnoreCase(vendorInput)) {
-                System.out.println(vendorInput);
-            } else {
-                System.out.println("could not find vendor");
-            }
-            System.out.println("displayed the transactions from " + vendorInput);
-            pressEnterToContinue();
+            }while(true);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        }while(true);
 
     }
 
