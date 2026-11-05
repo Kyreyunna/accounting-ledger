@@ -92,7 +92,7 @@ public class AccountingLedgerApp {
         do {
             System.out.println();
             System.out.println("=== Ledger ===");
-            System.out.println("A) All Transactions");
+            System.out.println("A) All");
             System.out.println("D) Deposits");
             System.out.println("P) Payments");
             System.out.println("R) Reports");
@@ -115,8 +115,8 @@ public class AccountingLedgerApp {
         String command;
         do {
             System.out.println();
-            System.out.println("=== Search ===");
-            System.out.println("1) Month to Date");
+            System.out.println("=== Reports ===");
+            System.out.println("1) Month To Date");
             System.out.println("2) Previous Month");
             System.out.println("3) Year To Date");
             System.out.println("4) Previous Year");
@@ -131,7 +131,7 @@ public class AccountingLedgerApp {
                 case "3" -> searchByYear();
                 case "4" -> searchByPreviousYear();
                 case "5" -> searchByVendor();
-                case "0" -> System.out.println("Back to Browse Movies");
+                case "0" -> System.out.println("Back to Ledger");
                 default -> System.out.println("That isn't a command. Try again.");
             }
         } while (!command.equals("0"));
@@ -149,7 +149,7 @@ public class AccountingLedgerApp {
 
         String description = "";
         do {
-            System.out.print("Enter description(letters only):");
+            System.out.print("Enter description: ");
             description = scanner.nextLine().trim();
             try {
                 if (description.isEmpty()) {
@@ -164,12 +164,12 @@ public class AccountingLedgerApp {
                 throw new RuntimeException(e);
 
             }
-            break;
+
         } while (true);
 
         String vendor = "";
         do {
-            System.out.print("Enter vendor(letters only):");
+            System.out.print("Enter vendor(letters only): ");
             vendor = scanner.nextLine().trim();
             try {
                 if (vendor.isEmpty()) {
@@ -184,7 +184,7 @@ public class AccountingLedgerApp {
                 throw new RuntimeException(e);
 
             }
-            break;
+
         } while (true);
 
         double amount;
@@ -202,7 +202,7 @@ public class AccountingLedgerApp {
         } while (amount <= 0);
 
         // Create the new transaction object
-        Transaction newDeposit = new Transaction(date, time, vendor, vendor, amount);
+        Transaction newDeposit = new Transaction(date, time,description, vendor, amount);
         addToTransactionList(newDeposit);
 
         // Save it to CSV file
@@ -238,7 +238,7 @@ public class AccountingLedgerApp {
                 throw new RuntimeException(e);
 
             }
-            break;
+
         } while (true);
 
         String vendor = "";
@@ -258,7 +258,7 @@ public class AccountingLedgerApp {
                 throw new RuntimeException(e);
 
             }
-            break;
+
         } while (true);
 
         double inputAmount;
