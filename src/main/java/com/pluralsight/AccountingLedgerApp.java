@@ -1,5 +1,4 @@
 package com.pluralsight;
-
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -346,7 +345,10 @@ public class AccountingLedgerApp {
     }
 
     public static void searchByMonth() {
-        LocalDate date = LocalDate.now();
+        System.out.print("Enter month (must be 1-12): ");
+        //wait for input//
+        int monthInput = scanner.nextInt();
+        scanner.nextLine();
         System.out.println();
         System.out.println("=== This Month ===");
 
@@ -357,17 +359,14 @@ public class AccountingLedgerApp {
         // Loop through the list (transactions are already loaded oldest to newest from the file)
         try {
             for (Transaction t : transactionList) {
-                int monthValue = date.getMonthValue();
-                if (monthValue <=12 ){
+                int targetMonth = t.getDate().getMonthValue();
+                if (targetMonth == monthInput ){
                     System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                             t.getDate(),
                             t.getTime(),
                             t.getDescription(),
                             t.getVendor(),
                             t.getAmount());
-                }
-                else {
-                    System.out.println("Error! please enter a number from 1 to 12: ");
                 }
             }
         } catch (Exception e) {
