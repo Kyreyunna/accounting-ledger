@@ -401,11 +401,37 @@ public class AccountingLedgerApp {
     }
 
     public static void searchByVendor() {
-        System.out.print("Vendor to search for: ");
-        int year = Integer.parseInt(scanner.nextLine());
+        do{
+            System.out.print("Enter vendor(letters only):");
 
-        System.out.println("TODO: display the transactions from " + year);
-        pressEnterToContinue();
+        String vendorInput = scanner.nextLine().trim( );
+
+        for (Transaction t : transactionList) {
+            if (vendorInput.isEmpty()) {
+                System.out.println("This can't be blank.");
+            } else if (vendorInput.contains("|")) {
+                System.out.println("Please don't use the | character.");
+            }
+            //has to match vendor in the transaction list
+            String targetVendor = t.getVendor();
+            if (t.getVendor() == targetVendor) {
+                System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                        t.getDate(),
+                        t.getTime(),
+                        t.getDescription(),
+                        t.getVendor(),
+                        t.getAmount());
+            }
+            if (t.getVendor().equalsIgnoreCase(vendorInput)) {
+                System.out.println(vendorInput);
+            } else {
+                System.out.println("could not find vendor");
+            }
+            System.out.println("displayed the transactions from " + vendorInput);
+            pressEnterToContinue();
+        }
+        }while(true);
+
     }
 
     // the results stay on screen until the user is ready to see the menu again
