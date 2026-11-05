@@ -147,11 +147,25 @@ public class AccountingLedgerApp {
         String dateStr = date.toString(); // e.g., "2026-11-04"
         String timeStr = time.format(DateTimeFormatter.ofPattern("HH:mm:ss")); // e.g., "11:40:15"
 
-        System.out.print("Enter description: ");
-        String description = scanner.nextLine();
+        String description = new String();
+        do {
+            System.out.print("Enter description(letters only):");
+            String inputDescription = scanner.nextLine().trim();
+            try {
+                if (inputDescription.isEmpty()) {
+                    System.out.println("This can't be blank.");
+                } else if (inputDescription.contains("|")) {
+                    System.out.println("Please don't use the | character.");
+                }
+            } catch (Exception e) {
+                System.out.println("Please enter a valid word, like Hot Topic");
+                throw new RuntimeException(e);
 
-        System.out.print("Enter vendor: ");
-        String vendor = scanner.nextLine();
+            }break;
+            }while(true);
+
+            System.out.print("Enter vendor: ");
+            String vendor = scanner.nextLine();
 
         double amount;
         do {
