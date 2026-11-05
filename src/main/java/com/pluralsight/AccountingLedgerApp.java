@@ -1,4 +1,5 @@
 package com.pluralsight;
+
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -149,40 +150,42 @@ public class AccountingLedgerApp {
         String description = "";
         do {
             System.out.print("Enter description(letters only):");
-            description = scanner.nextLine().trim( );
+            description = scanner.nextLine().trim();
             try {
                 if (description.isEmpty()) {
                     System.out.println("This can't be blank.");
                 } else if (description.contains("|")) {
                     System.out.println("Please don't use the | character.");
-                }else{
+                } else {
                     break;
                 }
             } catch (Exception e) {
                 System.out.println("Please enter a valid word, like Doc Martens");
                 throw new RuntimeException(e);
 
-            }break;
-            }while(true);
+            }
+            break;
+        } while (true);
 
         String vendor = "";
         do {
             System.out.print("Enter vendor(letters only):");
-            vendor = scanner.nextLine().trim( );
+            vendor = scanner.nextLine().trim();
             try {
                 if (vendor.isEmpty()) {
                     System.out.println("This can't be blank.");
                 } else if (vendor.contains("|")) {
                     System.out.println("Please don't use the | character.");
-                }else{
+                } else {
                     break;
                 }
             } catch (Exception e) {
                 System.out.println("Please enter a valid word, like Hot Topic");
                 throw new RuntimeException(e);
 
-            }break;
-        }while(true);
+            }
+            break;
+        } while (true);
 
         double amount;
         do {
@@ -209,6 +212,7 @@ public class AccountingLedgerApp {
         System.out.println("Deposit added!");
         pressEnterToContinue();
     }
+
     public static void makePayment() {
         LocalDate date = LocalDate.now();
         LocalTime time = LocalTime.now();
@@ -220,40 +224,42 @@ public class AccountingLedgerApp {
         String description = "";
         do {
             System.out.print("Enter description(letters only):");
-            description = scanner.nextLine().trim( );
+            description = scanner.nextLine().trim();
             try {
                 if (description.isEmpty()) {
                     System.out.println("This can't be blank.");
                 } else if (description.contains("|")) {
                     System.out.println("Please don't use the | character.");
-                }else{
+                } else {
                     break;
                 }
             } catch (Exception e) {
                 System.out.println("Please enter a valid word, like Doc Martens");
                 throw new RuntimeException(e);
 
-            }break;
-        }while(true);
+            }
+            break;
+        } while (true);
 
         String vendor = "";
         do {
             System.out.print("Enter vendor(letters only):");
-            vendor = scanner.nextLine().trim( );
+            vendor = scanner.nextLine().trim();
             try {
                 if (vendor.isEmpty()) {
                     System.out.println("This can't be blank.");
                 } else if (vendor.contains("|")) {
                     System.out.println("Please don't use the | character.");
-                }else{
+                } else {
                     break;
                 }
             } catch (Exception e) {
                 System.out.println("Please enter a valid word, like Hot Topic");
                 throw new RuntimeException(e);
 
-            }break;
-        }while(true);
+            }
+            break;
+        } while (true);
 
         double inputAmount;
         do {
@@ -308,8 +314,8 @@ public class AccountingLedgerApp {
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // Loop through the list (transactions are already loaded oldest to newest from the file)
-            for (Transaction depositTransactions : transactionList) {
-                if (depositTransactions.getAmount() > 0) {
+        for (Transaction depositTransactions : transactionList) {
+            if (depositTransactions.getAmount() > 0) {
                 System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                         depositTransactions.getDate(),
                         depositTransactions.getTime(),
@@ -360,7 +366,7 @@ public class AccountingLedgerApp {
         try {
             for (Transaction t : transactionList) {
                 int targetMonth = t.getDate().getMonthValue();
-                if (targetMonth == monthInput ){
+                if (targetMonth == monthInput) {
                     System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                             t.getDate(),
                             t.getTime(),
@@ -386,19 +392,18 @@ public class AccountingLedgerApp {
         // Loop through the list (transactions are already loaded oldest to newest from the file)
 
         try {
-            LocalDate previousMonth=LocalDate.now().minusMonths(1);
+            LocalDate previousMonth = LocalDate.now().minusMonths(1);
             int previousMonthValue = previousMonth.getMonthValue();
             for (Transaction t : transactionList) {
 
-                if (previousMonthValue==t.getDate().getMonthValue()){
+                if (previousMonthValue == t.getDate().getMonthValue()) {
                     System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                             t.getDate(),
                             t.getTime(),
                             t.getDescription(),
                             t.getVendor(),
                             t.getAmount());
-                }
-                else{
+                } else {
                     System.out.println("error");
                 }
             }
@@ -410,12 +415,31 @@ public class AccountingLedgerApp {
     }
 
     public static void searchByYear() {
-        System.out.print("Year to search for: ");
-        int year = Integer.parseInt(scanner.nextLine());
+        LocalDate now = LocalDate.now();
+        int currentYear = now.getYear();
+        System.out.println();
+        System.out.println("=== This Year ===");
 
-        System.out.println("TODO: display the transactions from " + year);
+        // Print a clean, formatted table header
+        System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        // Loop through the list (transactions are already loaded oldest to newest from the file)
+
+        for (Transaction t : transactionList) {
+            int transactionYear = t.getDate().getYear();
+            if (transactionYear == currentYear) {
+                System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                        t.getDate(),
+                        t.getTime(),
+                        t.getDescription(),
+                        t.getVendor(),
+                        t.getAmount());
+            }
+        }
         pressEnterToContinue();
     }
+
 
     public static void searchByPreviousYear() {
         System.out.print("Previous Year to search for: ");
@@ -427,36 +451,36 @@ public class AccountingLedgerApp {
 
     public static void searchByVendor() {
         try {
-            do{
+            do {
                 System.out.print("Enter vendor(letters only):");
 
-            String vendorInput = scanner.nextLine().trim( );
+                String vendorInput = scanner.nextLine().trim();
 
-            for (Transaction t : transactionList) {
-                if (vendorInput.isEmpty()) {
-                    System.out.println("This can't be blank.");
-                } else if (vendorInput.contains("|")) {
-                    System.out.println("Please don't use the | character.");
+                for (Transaction t : transactionList) {
+                    if (vendorInput.isEmpty()) {
+                        System.out.println("This can't be blank.");
+                    } else if (vendorInput.contains("|")) {
+                        System.out.println("Please don't use the | character.");
+                    }
+                    //has to match vendor in the transaction list
+                    String targetVendor = t.getVendor();
+                    if (t.getVendor() == targetVendor) {
+                        System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                                t.getDate(),
+                                t.getTime(),
+                                t.getDescription(),
+                                t.getVendor(),
+                                t.getAmount());
+                    }
+                    if (t.getVendor().equalsIgnoreCase(vendorInput)) {
+                        System.out.println(vendorInput);
+                    } else {
+                        System.out.println("could not find vendor");
+                    }
+                    System.out.println("displayed the transactions from " + vendorInput);
+                    pressEnterToContinue();
                 }
-                //has to match vendor in the transaction list
-                String targetVendor = t.getVendor();
-                if (t.getVendor() == targetVendor) {
-                    System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
-                            t.getDate(),
-                            t.getTime(),
-                            t.getDescription(),
-                            t.getVendor(),
-                            t.getAmount());
-                }
-                if (t.getVendor().equalsIgnoreCase(vendorInput)) {
-                    System.out.println(vendorInput);
-                } else {
-                    System.out.println("could not find vendor");
-                }
-                System.out.println("displayed the transactions from " + vendorInput);
-                pressEnterToContinue();
-            }
-            }while(true);
+            } while (true);
         } catch (Exception e) {
             System.out.println("error");
             throw new RuntimeException(e);
