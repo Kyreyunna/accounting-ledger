@@ -201,7 +201,6 @@ public class AccountingLedgerApp {
 
         // Create the new transaction object
         Transaction newDeposit = new Transaction(date, time, vendor, vendor, amount);
-
         addToTransactionList(newDeposit);
 
         // Save it to CSV file
@@ -219,14 +218,43 @@ public class AccountingLedgerApp {
         String dateStr = date.toString(); // e.g., "2026-11-04"
         String timeStr = time.format(DateTimeFormatter.ofPattern("HH:mm:ss")); // e.g., "11:40:15"
 
-        System.out.println("Date: " + dateStr);
-        System.out.println("Time: " + timeStr);
+        String description = "";
+        do {
+            System.out.print("Enter description(letters only):");
+            description = scanner.nextLine().trim( );
+            try {
+                if (description.isEmpty()) {
+                    System.out.println("This can't be blank.");
+                } else if (description.contains("|")) {
+                    System.out.println("Please don't use the | character.");
+                }else{
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Please enter a valid word, like Doc Martens");
+                throw new RuntimeException(e);
 
-        System.out.print("Enter description: ");
-        String description = scanner.nextLine();
+            }break;
+        }while(true);
 
-        System.out.print("Enter vendor: ");
-        String vendor = scanner.nextLine();
+        String vendor = "";
+        do {
+            System.out.print("Enter vendor(letters only):");
+            vendor = scanner.nextLine().trim( );
+            try {
+                if (vendor.isEmpty()) {
+                    System.out.println("This can't be blank.");
+                } else if (vendor.contains("|")) {
+                    System.out.println("Please don't use the | character.");
+                }else{
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Please enter a valid word, like Hot Topic");
+                throw new RuntimeException(e);
+
+            }break;
+        }while(true);
 
         double inputAmount;
         do {
