@@ -147,15 +147,17 @@ public class AccountingLedgerApp {
         String dateStr = date.toString(); // e.g., "2026-11-04"
         String timeStr = time.format(DateTimeFormatter.ofPattern("HH:mm:ss")); // e.g., "11:40:15"
 
-        String description = new String();
+        String description = "";
         do {
             System.out.print("Enter description(letters only):");
-            String inputDescription = scanner.nextLine().trim();
+            description = scanner.nextLine().trim( );
             try {
-                if (inputDescription.isEmpty()) {
+                if (description.isEmpty()) {
                     System.out.println("This can't be blank.");
-                } else if (inputDescription.contains("|")) {
+                } else if (description.contains("|")) {
                     System.out.println("Please don't use the | character.");
+                }else{
+                    break;
                 }
             } catch (Exception e) {
                 System.out.println("Please enter a valid word, like Hot Topic");
@@ -187,7 +189,7 @@ public class AccountingLedgerApp {
         addToTransactionList(newDeposit);
 
         // Save it to CSV file
-        String csvRow = dateStr + "|" + timeStr + "|" + description + "|" + vendor + "|" + amount;
+        String csvRow = dateStr + "|" + timeStr + "|" + description + "|" + vendor + "|" + String.format("%.2f", amount);
         appendToCSV(csvRow);
 
         System.out.println("Deposit added and saved successfully!");
