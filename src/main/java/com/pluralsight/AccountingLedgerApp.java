@@ -303,6 +303,23 @@ public class AccountingLedgerApp {
     public static void displayDeposits() {
         System.out.println();
         System.out.println("=== All Deposits ===");
+
+        // Print a clean, formatted table header
+        System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        // Loop through the list (transactions are already loaded oldest to newest from the file)
+            for (Transaction depositTransactions : transactionList) {
+                if (depositTransactions.getAmount() > 0) {
+                System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                        depositTransactions.getDate(),
+                        depositTransactions.getTime(),
+                        depositTransactions.getDescription(),
+                        depositTransactions.getVendor(),
+                        depositTransactions.getAmount());
+            }
+        }
+
         pressEnterToContinue();
     }
 
