@@ -324,7 +324,7 @@ public class AccountingLedgerApp {
 
     public static void displayPayments() {
         System.out.println();
-        System.out.println("=== All Deposits ===");
+        System.out.println("=== All Payments ===");
 
         // Print a clean, formatted table header
         System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
@@ -377,10 +377,35 @@ public class AccountingLedgerApp {
     }
 
     public static void searchByPreviousMonth() {
-        System.out.print("Previous month: ");
-        int year = Integer.parseInt(scanner.nextLine());
+        System.out.println("=== Last Month ===");
 
-        System.out.println("TODO: display the transactions from " + year);
+        // Print a clean, formatted table header
+        System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        // Loop through the list (transactions are already loaded oldest to newest from the file)
+
+        try {
+            LocalDate previousMonth=LocalDate.now().minusMonths(1);
+            int previousMonthValue = previousMonth.getMonthValue();
+            for (Transaction t : transactionList) {
+
+                if (previousMonthValue==t.getDate().getMonthValue()){
+                    System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                            t.getDate(),
+                            t.getTime(),
+                            t.getDescription(),
+                            t.getVendor(),
+                            t.getAmount());
+                }
+                else{
+                    System.out.println("error");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("error occured");
+            throw new RuntimeException(e);
+        }
         pressEnterToContinue();
     }
 
@@ -433,6 +458,7 @@ public class AccountingLedgerApp {
             }
             }while(true);
         } catch (Exception e) {
+            System.out.println("error");
             throw new RuntimeException(e);
         }
 
