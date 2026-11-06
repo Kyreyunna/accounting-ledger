@@ -351,33 +351,27 @@ public class AccountingLedgerApp {
     }
 
     public static void searchByMonth() {
-        System.out.print("Enter month (must be 1-12): ");
-        //wait for input//
-        int monthInput = scanner.nextInt();
-        scanner.nextLine();
+        LocalDate today = LocalDate.now();
+        int currentMonth = today.getMonthValue();
         System.out.println();
-        System.out.println("=== This Month ===");
+        System.out.println("=== This Year ===");
 
         // Print a clean, formatted table header
         System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // Loop through the list (transactions are already loaded oldest to newest from the file)
-        try {
-            for (Transaction t : transactionList) {
-                int targetMonth = t.getDate().getMonthValue();
-                if (targetMonth == monthInput) {
-                    System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
-                            t.getDate(),
-                            t.getTime(),
-                            t.getDescription(),
-                            t.getVendor(),
-                            t.getAmount());
-                }
+
+        for (Transaction t : transactionList) {
+            int transactionMonth = t.getDate().getMonthValue();
+            if (transactionMonth == currentMonth) {
+                System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                        t.getDate(),
+                        t.getTime(),
+                        t.getDescription(),
+                        t.getVendor(),
+                        t.getAmount());
             }
-        } catch (Exception e) {
-            System.out.println("Please enter a valid number, like 3: ");
-            throw new RuntimeException(e);
         }
         pressEnterToContinue();
     }
