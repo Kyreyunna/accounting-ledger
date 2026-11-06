@@ -300,7 +300,7 @@ public class AccountingLedgerApp {
         for (Transaction t : transactionList) {
             System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                     t.getDate(),
-                    t.getTime(),
+                    t.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                     t.getDescription(),
                     t.getVendor(),
                     t.getAmount());
@@ -322,7 +322,7 @@ public class AccountingLedgerApp {
             if (depositTransactions.getAmount() > 0) {
                 System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                         depositTransactions.getDate(),
-                        depositTransactions.getTime(),
+                        depositTransactions.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                         depositTransactions.getDescription(),
                         depositTransactions.getVendor(),
                         depositTransactions.getAmount());
@@ -345,7 +345,7 @@ public class AccountingLedgerApp {
             if (depositTransactions.getAmount() < 0) {
                 System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                         depositTransactions.getDate(),
-                        depositTransactions.getTime(),
+                        depositTransactions.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                         depositTransactions.getDescription(),
                         depositTransactions.getVendor(),
                         depositTransactions.getAmount());
@@ -374,7 +374,7 @@ public class AccountingLedgerApp {
                 if (transactionMonth == currentMonth) {
                     System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                             t.getDate(),
-                            t.getTime(),
+                            t.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                             t.getDescription(),
                             t.getVendor(),
                             t.getAmount());
@@ -406,7 +406,7 @@ public class AccountingLedgerApp {
                     if (transactionMonth == targetMonth) {
                         System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                                 t.getDate(),
-                                t.getTime(),
+                                t.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                                 t.getDescription(),
                                 t.getVendor(),
                                 t.getAmount());
@@ -437,7 +437,7 @@ public class AccountingLedgerApp {
             if (transactionYear == currentYear) {
                 System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                         t.getDate(),
-                        t.getTime(),
+                        t.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                         t.getDescription(),
                         t.getVendor(),
                         t.getAmount());
@@ -463,7 +463,7 @@ public class AccountingLedgerApp {
             if (transactionYear == previousYear) {
                 System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                         t.getDate(),
-                        t.getTime(),
+                        t.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                         t.getDescription(),
                         t.getVendor(),
                         t.getAmount());
@@ -498,7 +498,7 @@ public class AccountingLedgerApp {
                     if (t.getVendor().equalsIgnoreCase(vendorInput)) {
                         System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                                 t.getDate(),
-                                t.getTime(),
+                                t.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                                 t.getDescription(),
                                 t.getVendor(),
                                 t.getAmount());
