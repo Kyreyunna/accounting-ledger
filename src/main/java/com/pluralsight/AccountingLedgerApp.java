@@ -382,27 +382,31 @@ public class AccountingLedgerApp {
 
     public static void searchByPreviousMonth() {
         System.out.println("=== Last Month ===");
-
         // Print a clean, formatted table header
         System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // Loop through the list (transactions are already loaded oldest to newest from the file)
 
-        try {
+        try {LocalDate today = LocalDate.now();
             LocalDate previousMonth = LocalDate.now().minusMonths(1);
-            int previousMonthValue = previousMonth.getMonthValue();
+            int targetYear = previousMonth.getYear();
+            int targetMonth = previousMonth.getMonthValue();
+
             for (Transaction t : transactionList) {
 
-                if (previousMonthValue == t.getDate().getMonthValue()) {
-                    System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
-                            t.getDate(),
-                            t.getTime(),
-                            t.getDescription(),
-                            t.getVendor(),
-                            t.getAmount());
-                } else {
-                    System.out.println("error");
+                int transactionYear= t.getDate().getYear();
+                int transactionMonth = t.getDate().getMonthValue();
+
+                if(transactionYear == targetYear){
+                    if (transactionMonth == targetMonth) {
+                        System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                                t.getDate(),
+                                t.getTime(),
+                                t.getDescription(),
+                                t.getVendor(),
+                                t.getAmount());
+                    }
                 }
             }
         } catch (Exception e) {
@@ -465,6 +469,8 @@ public class AccountingLedgerApp {
     }
 
     public static void searchByVendor() {
+        System.out.println();
+        System.out.println("=== Search By Vendor ===");
         try {
             do {
                 System.out.print("Enter vendor(letters only):");
@@ -478,8 +484,8 @@ public class AccountingLedgerApp {
                         System.out.println("Please don't use the | character.");
                     }
                     //has to match vendor in the transaction list
-                    String targetVendor = t.getVendor();
-                    if (t.getVendor() == targetVendor) {
+                    String transactionVendor = t.getVendor();
+                    if (transactionVendor == vendorInput) {
                         System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                                 t.getDate(),
                                 t.getTime(),
@@ -489,11 +495,9 @@ public class AccountingLedgerApp {
                     }
                     if (t.getVendor().equalsIgnoreCase(vendorInput)) {
                         System.out.println(vendorInput);
-                    } else {
-                        System.out.println("could not find vendor");
                     }
                     System.out.println("displayed the transactions from " + vendorInput);
-                    pressEnterToContinue();
+
                 }
             } while (true);
         } catch (Exception e) {
