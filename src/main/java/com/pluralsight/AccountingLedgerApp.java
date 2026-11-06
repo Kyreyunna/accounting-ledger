@@ -281,7 +281,7 @@ public class AccountingLedgerApp {
         addToTransactionList(newPayment);
 
         // Format and append to CSV using the original strings (dateStr and timeStr)
-        String csvRow = dateStr + "|" + timeStr + "|" + description + "|" + vendor + "|" + amount;
+        String csvRow = dateStr + "|" + timeStr + "|" + description + "|" + vendor + "|" + String.format("%.2f", amount);
         appendToCSV(csvRow);
 
         System.out.println("Payment made successfully!");
