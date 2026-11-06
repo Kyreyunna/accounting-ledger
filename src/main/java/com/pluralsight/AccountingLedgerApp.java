@@ -53,7 +53,6 @@ public class AccountingLedgerApp {
 
             // close the reader to release the file
             bufferedReader.close();
-            System.out.println("Loaded " + transactionList.size() + " transactions from file.");
         } catch (IOException e) {
             // print the details so the error is never hidden from you
             e.printStackTrace();
@@ -121,7 +120,7 @@ public class AccountingLedgerApp {
             System.out.println("3) Year To Date");
             System.out.println("4) Previous Year");
             System.out.println("5) Search by Vendor");
-            System.out.println("0) Back");
+            System.out.println("0) Back to Ledger");
             System.out.print("Enter a command: ");
             command = scanner.nextLine().trim().toUpperCase();
 
@@ -261,12 +260,17 @@ public class AccountingLedgerApp {
 
         } while (true);
 
-        double inputAmount;
+        double inputAmount = -1;
         do {
             System.out.print("Enter payment amount (must be > 0): ");
-            inputAmount = Double.parseDouble(scanner.nextLine());
-            if (inputAmount <= 0) {
-                System.out.println("Payment amount must be greater than zero. Try again.");
+            try {
+                inputAmount = Double.parseDouble(scanner.nextLine());
+                if (inputAmount <= 0) {
+                    System.out.println("Payment amount must be greater than zero. Try again.");
+                }
+                }catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number, like 89.50.");
+                inputAmount = -1;
             }
         } while (inputAmount <= 0);
 
@@ -529,7 +533,6 @@ public class AccountingLedgerApp {
             bufferedWriter.newLine(); // Moves to the next line for the next entry
 
             bufferedWriter.close();
-            System.out.println("Successfully saved to file!");
         } catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
             e.printStackTrace();
