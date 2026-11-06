@@ -352,9 +352,10 @@ public class AccountingLedgerApp {
 
     public static void searchByMonth() {
         LocalDate today = LocalDate.now();
+        int currentYear = today.getYear();
         int currentMonth = today.getMonthValue();
-        System.out.println();
-        System.out.println("=== This Year ===");
+
+        System.out.println("=== This Month ===");
 
         // Print a clean, formatted table header
         System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
@@ -363,14 +364,17 @@ public class AccountingLedgerApp {
         // Loop through the list (transactions are already loaded oldest to newest from the file)
 
         for (Transaction t : transactionList) {
+            int transactionYear = t.getDate().getYear();
             int transactionMonth = t.getDate().getMonthValue();
-            if (transactionMonth == currentMonth) {
-                System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
-                        t.getDate(),
-                        t.getTime(),
-                        t.getDescription(),
-                        t.getVendor(),
-                        t.getAmount());
+            if (transactionYear == currentYear) {
+                if (transactionMonth == currentMonth) {
+                    System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
+                            t.getDate(),
+                            t.getTime(),
+                            t.getDescription(),
+                            t.getVendor(),
+                            t.getAmount());
+                }
             }
         }
         pressEnterToContinue();
