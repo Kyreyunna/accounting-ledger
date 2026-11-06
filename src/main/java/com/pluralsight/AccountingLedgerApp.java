@@ -13,6 +13,9 @@ public class AccountingLedgerApp {
     static Scanner scanner = new Scanner(System.in);
     static List<Transaction> transactionList = new ArrayList<>();
 
+    public static final String PINK = "\u001B[38;5;213m";
+    public static final String RESET = "\u001B[0m";
+
     public static void main(String[] args) {
         loadTransactions();
         runHomeScreen();
@@ -68,6 +71,9 @@ public class AccountingLedgerApp {
         String command;
         do {
             System.out.println();
+            System.out.println(PINK + "========================================" + RESET);
+            System.out.println(PINK + "       ♥  ACCOUNTING LEDGER  ♥          " + RESET);
+            System.out.println(PINK + "========================================" + RESET);
             System.out.println("=== Home ===");
             System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment");
