@@ -471,40 +471,43 @@ public class AccountingLedgerApp {
     public static void searchByVendor() {
         System.out.println();
         System.out.println("=== Search By Vendor ===");
-        try {
-            do {
-                System.out.print("Enter vendor(letters only):");
+        System.out.print("Enter vendor(letters only):");
 
-                String vendorInput = scanner.nextLine().trim();
+            String vendorInput = scanner.nextLine().trim();
 
-                for (Transaction t : transactionList) {
                     if (vendorInput.isEmpty()) {
                         System.out.println("This can't be blank.");
+                        pressEnterToContinue();
+                        return;
                     } else if (vendorInput.contains("|")) {
                         System.out.println("Please don't use the | character.");
+                        pressEnterToContinue();
+                        return;
                     }
+                    System.out.printf("%-12s %-10s %-25s %-20s %12s%n", "Date", "Time", "Description", "Vendor", "Amount");
+                    System.out.println("-----------------------------------------------------------------------------------------");
+
+                    int vendorCount = 0;
+
                     //has to match vendor in the transaction list
-                    String transactionVendor = t.getVendor();
-                    if (transactionVendor == vendorInput) {
+                    for (Transaction t : transactionList){
+                    if (t.getVendor().equalsIgnoreCase(vendorInput)) {
                         System.out.printf("%-12s %-10s %-25s %-20s %12.2f%n",
                                 t.getDate(),
                                 t.getTime(),
                                 t.getDescription(),
                                 t.getVendor(),
                                 t.getAmount());
+                        vendorCount = vendorCount + 1;
                     }
-                    if (t.getVendor().equalsIgnoreCase(vendorInput)) {
-                        System.out.println(vendorInput);
                     }
-                    System.out.println("displayed the transactions from " + vendorInput);
+                    if (vendorCount==0) {
+                        System.out.println("Could not find vendor " + vendorInput);
+                    }else {
+                        System.out.println("displayed the transactions from " + vendorInput);
+                    }
 
-                }
-            } while (true);
-        } catch (Exception e) {
-            System.out.println("error");
-            throw new RuntimeException(e);
-        }
-
+        pressEnterToContinue();
     }
 
     // the results stay on screen until the user is ready to see the menu again
